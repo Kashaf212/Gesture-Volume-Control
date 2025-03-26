@@ -1,15 +1,15 @@
-# Gesture Volume Control 🎚️✋
+# Gesture Volume Control
 
 A Python-based computer vision project to control your system's volume using hand gestures detected via your webcam. This project leverages **OpenCV**, **MediaPipe**, and **pycaw** to provide a real-time gesture interface for volume control.
 
-## 🚀 Features
+## Features
 
 - Real-time hand detection using **MediaPipe**
 - Volume control by measuring the distance between thumb and index finger
 - Smooth volume bar and percentage display
 - FPS counter for performance tracking
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - Python
 - OpenCV
@@ -18,7 +18,7 @@ A Python-based computer vision project to control your system's volume using han
 - NumPy
 - comtypes
 
-## 📦 Installation
+## Installation
 
 1. Clone the repository:
    ```bash
