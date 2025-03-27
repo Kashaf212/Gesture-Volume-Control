@@ -33,15 +33,17 @@ while True:
     if not success:
         print("Error: Couldn't access the webcam")
     img = detector.findHands(img)
-    lmList, bbox = detector.findPosition(img, draw = False)
-    # print(lmList)
-
+    lmList = detector.findPosition(img, draw = False)
+    #print(lmList)
+    cv2.imshow("img", img)
+    cv2.waitKey(1)
 
 
     if len(lmList) != 0:
-      # print(lmList[4], lmList[8]) ## Thumd and Index finger
-      x1, y1 = lmList[4][1], lmList[4][2]
-      x2, y2 = lmList[8][1], lmList[8][2]
+      lmlist = lmList[0]
+      #print(lmlist[4], lmlist[8]) ## Thumd and Index finger
+      x1, y1 = lmlist[4][1], lmlist[4][2]
+      x2, y2 = lmlist[8][1], lmlist[8][2]
       cx, cy = (x1 + x2) // 2, (y1 + y2) // 2
 
       cv2.circle(img, (x1, y1), 15, (255, 0, 255), cv2.FILLED)
@@ -55,9 +57,9 @@ while True:
       #hand range 50-300
       # volume range -65 - 0
 
-      vol = np.interp(length, [50, 300], [minVol, maxVol])
-      volBar = np.interp(length, [50, 300], [400, 150])
-      volPer = np.interp(length, [50, 300], [0, 100])
+      vol = np.interp(length, [50, 150], [minVol, maxVol])
+      volBar = np.interp(length, [50, 150], [400, 150])
+      volPer = np.interp(length, [50, 150], [0, 100])
       print(int(length), vol)
       volume.SetMasterVolumeLevel(vol, None)
 
